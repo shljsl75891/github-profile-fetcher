@@ -16,10 +16,18 @@ mainGithubDisplayContainer.style.display = "none";
 let userInfoProperties = {};
 
 // fetching user details from Github API
-async function fetchGtbDetails(username: string) {
-  const response = await fetch(GITHUB_API + username);
-  const data = await response.json();
-  return data;
+async function fetchGtbDetails(
+  username: string,
+): Promise<Record<string, any> | undefined> {
+  try {
+    const response = await fetch(GITHUB_API + username);
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    }
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 function appendUserInfoProps(
@@ -76,8 +84,10 @@ function showGtbProfileDetails(profileData: Record<string, any>) {
 
 const handleFetchGithubDetails = async () => {
   const profileData = await fetchGtbDetails(githubUsernameInput.value);
-  mainGithubDisplayContainer.style.display = "flex";
-  showGtbProfileDetails(profileData);
+  if (profileData) {
+    mainGithubDisplayContainer.style.display = "flex";
+    showGtbProfileDetails(profileData);
+  }
   githubUsernameInput.value = "";
 };
 
