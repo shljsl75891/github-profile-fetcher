@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+    </style>
+    <link href="style.css" rel="stylesheet" />
+    <title>Github Checker</title>
+  </head>
+  <body>
+    <header class="app-header">
+      <h1 class="app-greeting-heading">Welcome to Github Profile Checker</h1>
+    </header>
+    <main>
+      <input
+        type="text"
+        name="username"
+        id="github-username-input"
+        placeholder="Enter the github username"
+        autocomplete="false"
+      />
+      <button type="button" class="fetch-github-profile-details-btn">
+        Fetch Details
+      </button>
+      <div class="github-profile-content"></div>
+    </main>
+    <footer></footer>
+    <script src="./dist/script.js"></script>
+  </body>
+</html>
