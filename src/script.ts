@@ -13,7 +13,6 @@ const mainGithubDisplayContainer = document.querySelector(
 ) as HTMLDivElement;
 
 mainGithubDisplayContainer.style.display = "none";
-let userInfoProperties = {};
 
 // fetching user details from Github API
 async function fetchGtbDetails(
@@ -71,8 +70,6 @@ function showGtbProfileDetails(profileData: Record<string, any>) {
   userInfoContainer.appendChild(userDisplayName);
   userInfoContainer.appendChild(userInfoList);
   mainGithubDisplayContainer.appendChild(userInfoContainer);
-
-  // appending link to profile
 
   // appending user avatar
   const userAvatar = document.createElement("img");
